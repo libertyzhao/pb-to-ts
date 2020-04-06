@@ -12,7 +12,7 @@ readAllFiles(
             return;
         }
         var source = fs.readFileSync(absoluteFilePath, "utf8");
-        const pb = protoBufToTsType(source, { keepCase: !IS_HUMP });
+        const pb = protoBufToTsType(fileName, source, { keepCase: !IS_HUMP });
         // 替换一下后缀名
         fileName = fileName.replace(PB_EXT, TS_EXT);
         const outputFileName = FILE_CONFIG.output + fileName;

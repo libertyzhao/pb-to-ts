@@ -12,6 +12,11 @@ export type CLOSURE = {
     };
 };
 
+// 解析的选项
+export type PARSE_OPTIONS = {
+    keepCase: boolean;
+};
+
 // type信息的类型
 export type TYPE_INFO_LIST = {
     tsType: string | number;
@@ -24,13 +29,13 @@ export declare const enum PB_TYPE {
     SERVICE = "methods", // 协议
     ENUM = "values", // 枚举
     TYPE = "fields", // 数据类型
-    NESTED = "nested", // 嵌套
+    NESTED = "nested" // 嵌套
 }
 
 // action 的参数
 export type ACTION_INFO = {
     closure: CLOSURE;
-    message: any;
-    messageName: string;
-    type?: PB_TYPE;
+    message: any; // message信息
+    messageName: string; // message的名称
+    canDeclare: boolean; // 是否可以用declare来定义命名空间，外层如果定义了，内层就不能定义了
 };

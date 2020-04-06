@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+import { FILE_CONFIG } from "./config";
 
 // ts的基础类型
 declare const enum TS_TYPE {
@@ -38,8 +39,8 @@ const TYPES_MAP: {
 };
 
 // 是不是函数
-export function isFunction(func: any): boolean{
-    return typeof func !== "function"
+export function isFunction(func: any): boolean {
+    return typeof func !== "function";
 }
 
 // 根据Pb的类型获取ts的类型
@@ -79,4 +80,11 @@ export function readAllFiles(
             readAllFiles(absoluteFilePath, cb);
         }
     });
+}
+
+// 读文件
+export function readFileSync(filePath: string): string {
+    filePath = path.resolve(process.cwd(), FILE_CONFIG.input, filePath);
+    const content = fs.readFileSync(filePath, "utf8");
+    return content;
 }

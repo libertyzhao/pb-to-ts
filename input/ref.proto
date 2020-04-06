@@ -1,4 +1,7 @@
+syntax = "proto3";
+import "myEnum.proto";
 
+package runtime;
 
 // 循环引用，item里面的item3引用item2，item2里面的item4引用了item
 message QueryItemsResp {
@@ -9,29 +12,23 @@ message QueryItemsResp {
             // 这是内联第二层的item4，在item3内
             message Item4 {
                 repeated Item2 item2 = 1; //随便的评论1
-                optional MyEnum e = 3; //枚举值
+                demo.MyEnum e = 3; //枚举值
             }
             repeated Item4 item4 = 1; //随便的评论2
             repeated Item2 item2 = 2; //随便的评论3
         }
-        // 我的枚举
-        enum MyEnum {
-            testx = 0; // 枚举1
-            testy = 1; // 枚举2
-            testz = 2; // 枚举3
-        }
-        optional MyEnum e = 3; //商品id
+        demo.MyEnum e = 3; //商品id
         repeated Item3 item3 = 2;
-        optional string item_id = 1; //商品id
+        string item_id = 1; //商品id
     }
     message Item2 {
         message Item4 {
             repeated Item item = 1; //商品id
         }
         repeated Item4 item4 = 2;
-        optional string item_id = 1; //商品id
+        string item_id = 1; //商品id
     }
-    optional string err_msg = 1 [default = ""];
+    string err_msg = 1 [default = ""];
     repeated Item item_list = 2;
     repeated Item2 item_list1 = 3;
   }
