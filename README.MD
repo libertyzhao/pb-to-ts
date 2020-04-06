@@ -52,4 +52,4 @@ message Item {
 
 目前是通过本地跑命令编译，后续会尽量做的更易用
 
-![test](./assets/test.png)
+![test](./assets/title.png)
