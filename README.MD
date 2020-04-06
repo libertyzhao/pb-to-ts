@@ -10,7 +10,9 @@
 5、在output中收货
 
 ps: 支持pb的import，相对引用
+
 ps: 如果不希望转驼峰，在config中可以进行配置
+
 ps: 如果要用proto3，请在pb文件顶部写上"syntax = "proto3";"
 
 
