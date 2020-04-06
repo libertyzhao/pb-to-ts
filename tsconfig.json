@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "noImplicitAny": false,
+        "module": "CommonJS",
+        "target": "ES5",
+        "allowJs": false,
+        "experimentalDecorators": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "alwaysStrict": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "removeComments": true,
+        "pretty": true,
+        "strictPropertyInitialization": true,
+        "typeRoots": ["./typings/**/*", "../node_modules/@types", "../node_modules/protobufjs"],
+        "types": ["node"],
+        "lib": ["es5", "es2015", "scripthost"],
+    },
+    "include": ["**/*.ts", "./typings/**/*"],
+    "exclude": ["node_modules", "**/node_modules"]
+}

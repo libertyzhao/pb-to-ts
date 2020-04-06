@@ -1,0 +1,32 @@
+/***
+    sdfasdf
+    我叫MT
+*/
+message QueryItemsResp {
+    // 我就是我，颜色不一样的烟火
+  message Item {
+      optional string item_id = 1; //商品id
+      optional string title = 2; //商品标题
+      optional bool enable_exchangeable = 3;    //是否开启周期性可兑换
+  }
+  // 我的枚举
+  enum MyEnum {
+      testa = 0; // 枚举1
+      testb = 1; // 枚举2
+      testc = 2; // 枚举3
+  }
+  optional string err_msg = 1 [default = ""]; //错误信息
+  repeated Item item_list = 2; //获取到的商品列表信息
+}
+
+// 入参
+message QueryItemsReq {
+  repeated string item_list = 2; //获取到的商品列表信息
+}
+
+
+// 服务
+service testSvr {
+  // 批量查询商品信息
+  rpc QueryItems (QueryItemsReq) returns (QueryItemsResp){}
+}

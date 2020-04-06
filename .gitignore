@@ -1,0 +1,10 @@
+.editorconfig
+node_modules/
+package-lock.json
+yarn.lock
+.vscode/
+dist/
+.idea/
+protobuf.d.ts
+**/.DS_Store
+local
