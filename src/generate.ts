@@ -1,4 +1,5 @@
 import { TYPE_INFO_LIST } from "../typings/index";
+import { IS_OPTIONAL } from "./config";
 
 // 生成最外层的命名空间
 export function generateNamespace(
@@ -25,7 +26,8 @@ export function generateInterface(
     const typeStrList = typeInfoList.map(item => {
         const { key, tsType, comment } = item;
         const commentStr = getCommentStr(comment);
-        return `\t${key}: ${tsType}; ${commentStr}\n`;
+        const optionalStr = IS_OPTIONAL ? '?' : '';
+        return `\t${key}${optionalStr}: ${tsType}; ${commentStr}\n`;
     });
     // @ts-ignore 类型有问题
     const comment = message.comment;
